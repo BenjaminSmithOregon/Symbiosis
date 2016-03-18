@@ -1,0 +1,131 @@
+﻿@model Sprint1Test.Models.Profile
+
+
+<h2>Profile</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+</head>
+<body>
+   
+    <div class="wrapper col6">
+        <div id="footer">
+
+            <img src="~/images/UserPhotos/@Model.imagePath" height="100" />
+            @*<p><h5>@Html.ActionLink("Edit Picture", "ProfilePic", new { id = Model.ID })</h5><br /></p>
+            <h5>@Html.ActionLink("Edit Profile", "Edit", new { id = Model.ID })</h5>*@
+            <p><br /></p>
+            @Html.ActionLink("Edit Profile Picture", "ProfilePic", new { id = Model.ID })
+            <p><br /></p>
+            @Html.ActionLink("Edit Profile", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Delete Profile", "Delete", new { id = Model.ID })
+            <p><br /></p>
+            <p><br /></p>
+            <a href="~/images/UserPhotos/"></a>
+
+                <p>
+                    <strong>@Html.DisplayNameFor(model => model.userName)</strong><br />
+
+                    @Html.DisplayFor(model => model.userName)<br />
+                </p>
+
+                <p><br />
+                    <strong>@Html.DisplayNameFor(model => model.firstName)</strong> <br />
+
+                    @Html.DisplayFor(model => model.firstName)<br />
+                </p>
+
+                <p><br />
+                    <strong>@Html.DisplayNameFor(model => model.lastName)</strong> <br />
+
+                    @Html.DisplayFor(model => model.lastName)<br />
+                </p>
+
+                <p><br />
+                    <strong>@Html.DisplayNameFor(model => model.businessName)</strong> <br />
+
+                    @Html.DisplayFor(model => model.businessName)<br />
+                </p>
+
+                <p><br />
+                    <strong>@Html.DisplayNameFor(model => model.email)</strong> <br />
+
+                    @Html.DisplayFor(model => model.email)<br />
+                </p>
+
+                <p><br />
+                    <strong>@Html.DisplayNameFor(model => model.city)</strong> <br />
+
+                    @Html.DisplayFor(model => model.city)<br />
+                </p>
+
+                <p><br />
+                    <strong>@Html.DisplayNameFor(model => model.state)</strong> <br />
+
+                    @Html.DisplayFor(model => model.state)<br />
+                </p>
+
+                <p><br />
+                    <strong>@Html.DisplayNameFor(model => model.dateJoined)</strong> <br />
+
+                    @Html.DisplayFor(model => model.dateJoined)<br />
+                </p>
+
+                <p><br />
+                    <strong>@Html.DisplayNameFor(model => model.skillsOffered)</strong> <br />
+
+                    @Html.DisplayFor(model => model.skillsOffered)<br />
+                </p>
+
+                <p><br />
+                    <strong>@Html.DisplayNameFor(model => model.certs)</strong> <br />
+
+                    @Html.DisplayFor(model => model.certs)<br />
+                </p>
+
+            </div>
+            <br class="clear" />
+        </div>
+
+    <div class="wrapper col7">
+        <div id="footer">
+            <p><br /></p>
+            <p><br /></p>
+
+            <div class="footbox">
+                <h2>Place Holder for Feedback</h2>
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+            </div>
+
+            <div class="footbox">
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+            </div>
+
+            <div class="footbox">
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+            </div>
+
+            <div class="footbox">
+                <h2>Place Holder for Latest Messages</h2>
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+            </div>
+
+        </div>
+    </div>
+    </body>
+        </html>

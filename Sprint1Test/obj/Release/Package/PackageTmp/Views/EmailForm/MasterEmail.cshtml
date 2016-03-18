@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+    <h2>Submit Suggestion for a new skill</h2> <br />
+    <h2>Your request will be reviewed by an administrator</h2>
+    <form method="post" action="~/EmailForms/ProcessMasterEmail.cshtml">
+        <div>
+            Target Email:
+            <input type="text" name="customerName" />
+        </div>
+
+        <div>
+            Your email address:
+            <input type="text" name="customerEmail" />
+        </div>
+
+        <div>
+            Enter your message here: <br />
+            <textarea name="customerRequest" cols="45" rows="4"></textarea>
+        </div>
+
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+
+</body>
+</html>

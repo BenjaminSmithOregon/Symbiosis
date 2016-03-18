@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Sprint1Test.Models.Skill>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Skills Available</h2>
+
+
+@foreach (var item in Model)
+{
+    
+    <a href="@Html.DisplayFor(modelItem => item.Link)" class="myButton">@Html.DisplayFor(modelItem => item.SkillName)</a>
+}

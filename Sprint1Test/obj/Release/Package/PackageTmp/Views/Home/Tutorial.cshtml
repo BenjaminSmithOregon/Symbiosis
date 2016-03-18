@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "Tutorial";
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
+    <script type="text/javascript" src="../layout/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="../layout/scripts/jquery.jcarousel.pack.js"></script>
+    <script type="text/javascript" src="../layout/scripts/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../layout/scripts/jquery.jcarousel.setup.js"></script>
+
+
+<body id="top">
+
+    <!-- Wrapper ################################################################### -->
+    <div class="wrapper col4">
+        <div id="featured_slide">
+            <div id="featured_content">
+                <ul>
+                    <li><a href="#"><img src="../images/Tutorial/H2a.jpg"  alt="" /></a></li>
+                    <li><a href="#"><img src="../images/Tutorial/H2Stencil.jpg" alt="" /></a></li>
+                    <li><a href="#"><img src="../images/Tutorial/H2Cuddle.png"   alt="" /></a></li>
+                    <li><a href="#"><img src="../images/Tutorial/H2SkateBack.jpg" alt="" /></a></li>
+                    <li><a href="#"><img src="../images/Tutorial/H2PalletJack.jpg" alt="" /></a></li>
+                    <li><a href="#"><img src="../images/Tutorial/H2LiftPuck.jpg" alt="" /></a></li>
+                    <li><a href="#"><img src="../images/Tutorial/H2NameVolcano.jpg" alt="" /></a></li>
+                    <li><a href="#"><img src="../images/Tutorial/H2Miracle.jpg" alt="" /></a></li>
+                    <li><a href="#"><img src="../images/Tutorial/H2FIxPC.jpg" alt="" /></a></li>
+                    <li><a href="#"><img src="../images/Tutorial/H2b.jpg" alt="" /></a></li>
+                </ul>
+            </div>
+            <a href="javascript:void(0);" id="featured-item-prev"><img src="../layout/images/prev.png" alt="" /></a> <a href="javascript:void(0);" id="featured-item-next"><img src="../layout/images/next.png" alt="" /></a>
+        </div>
+    </div>
+    <!-- ####################################################################################################### -->
+
+    <div class="wrapper col5">
+        <div id="container">
+            <div id="content">
+                <h2>Tutorials Home Page</h2>
+                <img class="imgl" src="../images/demo/hands.jpg" alt="" width="150" height="130" />
+                <p><strong>Where we work and learn together.</strong></p>
+                <p>
+                    This section of the site was designed with you (the user) in mind, we currently do not have any tutorials available, but as they become available, they will be posted here, Have a nice day!
+                </p>
+                <p>
+                    There will be more text and a better explenation of what the user can expect.
+                </p>
+
+
+            </div>
+            <div id="column">
+                <div class="holder">
+                    <h2>Popular Tutorials</h2>
+                    <ul id="latestnews">
+                        <li>
+                            <img class="imgl" src="../images/Tutorial/H2a.jpg" alt="" width="100" height="100" />
+                            <p><strong>Our newest skill ever!</strong></p>
+                            <p>This is our newest and most popular tutorial.</p>
+                            <p class="readmore"><a href="#">Click here to start learning &raquo;</a></p>
+                        </li>
+                        <li class="last">
+                            <img class="imgl" src="../images/Tutorial/H2b.jpg" alt="" width="100" height="100" />
+                            <p><strong>New skill area.</strong></p>
+                            <p>We have now added a music lessons area, and guitar is our first skill.</p>
+                            <p class="readmore"><a href="#">Search for lessons &raquo;</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br class="clear" />
+        </div>
+    </div>
+    <!-- ####################################################################################################### -->
+    <div class="wrapper col6">
+        <div id="footer">
+            <div id="newsletter">
+                <h2>Stay In The Know !</h2>
+                <p>Please enter your email to get alerts when new skills are added in your area</p>
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>News Letter</legend>
+                        <input type="text" value="Enter Email Here&hellip;" onfocus="this.value=(this.value=='Enter Email Here&hellip;')? '' : this.value ;" />
+                        <input type="submit" name="news_go" id="news_go" value="GO" />
+                    </fieldset>
+                </form>
+                <p>To unsubscribe please <a href="#">click here &raquo;</a></p>
+            </div>
+            <div class="footbox">
+                <h2>Information</h2>
+                <ul>
+                    <li><a href="#">Imprint</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                    <li class="last"><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footbox">
+                <h2>Business</h2>
+                <ul>
+                    <li><a href="#">Advertising</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li class="last"><a href="#">Partner</a></li>
+                </ul>
+            </div>
+            <div class="footbox">
+                <h2>Feedback and Suggestions</h2>
+                <ul>
+                    <li>@Html.ActionLink("Website Feedback", "WebsiteSuggestionSubmit", "EmailForm", new { style = "color:white" })</li>
+                    <li>@Html.ActionLink("Suggest a new skill", "SuggestionSubmit", "EmailForm", new { style = "color:white" })</li>
+                    <li>@Html.ActionLink("Send a message (Members Only)", "MasterEmail", "EmailForm", new { style = "color:white" })</li>
+                </ul>
+            </div>
+            <br class="clear" />
+        </div>
+    </div>
+    <!-- ####################################################################################################### -->
+    <div class="wrapper col7">
+        <div id="copyright">
+            <p class="fl_left">Copyright Symbiosis &copy; 2015 - All Rights Reserved - <a href="#">SymbiosisApp.net</a></p>
+            <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">Agile Alpaca</a></p>
+            <br class="clear" />
+        </div>
+    </div>
+</body>
+

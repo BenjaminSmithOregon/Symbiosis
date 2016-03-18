@@ -1,0 +1,331 @@
+﻿@model IEnumerable<Sprint1Test.Models.Profile>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+</head>
+<body>
+
+    <h2>Registered Users</h2>
+
+    @using (Html.BeginForm())
+    {
+        <p>
+            Find by username or email: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+
+
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Username", "Index", new { sortOrder = ViewBag.NameSortParm }, new { style = "color:white" })
+            </th>
+
+            <th>
+                @Html.ActionLink("First", "Index", new { sortOrder = ViewBag.DateSortParm }, new { style = "color:white" })
+            </th>
+
+            <th>
+                @Html.ActionLink("Last", "Index", new { sortOrder = ViewBag.DateSortParm }, new { style = "color:white" })
+            </th>
+
+            <th>
+                @Html.ActionLink("Business", "Index", new { sortOrder = ViewBag.DateSortParm }, new { style = "color:white" })
+            </th>
+
+            <th>
+                @Html.ActionLink("City", "Index", new { sortOrder = ViewBag.DateSortParm }, new { style = "color:white" })
+            </th>
+
+
+            <th>
+                @Html.ActionLink("State", "Index", new { sortOrder = ViewBag.DateSortParm }, new { style = "color:white" })
+            </th>
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.firstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.businessName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.city)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.state)
+                </td>
+
+                <td>
+                    @*      @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+                    @*       @Html.ActionLink("Details", "Details", new { id=item.Id }) |*@
+                    @*        @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+    </body>
+
+
+
+
+    <!-----------------------------------BEGIN
+
+    <div class="wrapper col6">
+        <div id="footer">
+            @*<p> <img src="images/UserPhotos/ProfilePic.jpg" alt="" width="150" height="130" /></p>*@
+            <img src="~/images/UserPhotos/ProfilePic.jpg" width="100" height="100" />
+            <p><a href="~/ProfileTest1.aspx">Change Profle Pic</a><br /><br /></p>
+            <p> <a href="~/Profile/Edit/2/">Edit Profile</a> <br /></p>
+            <p><br /></p>
+            <p><br /></p>
+            <a href="~/images/UserPhotos/"></a>
+            <div class="footbox">
+                <ul>
+                    <li>
+
+                        @*@foreach (var item in Model)
+                        {
+
+                            <tr>
+
+                                <td>
+
+                                    <img src="~/images/UserPhotos/@item.imagePath" width="100" height="100" />
+
+                                </td>
+
+                                <td>
+
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+
+                                </td>
+
+                            </tr>
+
+                        }*@
+                        <p><br></p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footbox">
+                <ul>
+                    <li>
+                        <p><br></p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footbox">
+                @*<h2>Business</h2>*@
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        <li>@Html.DisplayFor(modelItem => item.userName)</li>
+
+                        <li>@Html.DisplayFor(modelItem => item.firstName)</li>
+
+                        <li>@Html.DisplayFor(modelItem => item.lastName)</li>
+
+                        <li>@Html.DisplayFor(modelItem => item.businessName)</li>
+
+                        <li>@Html.DisplayFor(modelItem => item.email)</li>
+
+                        <li>@Html.DisplayFor(modelItem => item.city)</li>
+
+                        <li>@Html.DisplayFor(modelItem => item.state)</li>
+
+                        <li>@Html.DisplayFor(modelItem => item.dateJoined)</li>
+
+                        <li>@Html.DisplayFor(modelItem => item.skillsOffered)</li>
+
+                        <li> @Html.DisplayFor(modelItem => item.certs)</li>
+
+                    }
+                </ul>
+            </div>
+
+
+            <div class="footbox">
+                @*<h2>Information</h2>*@
+                <ul>
+                    <li><strong>@Html.DisplayNameFor(model => model.userName)</strong></li>
+
+                    <li><strong>@Html.DisplayNameFor(model => model.firstName)</strong></li>
+
+                    <li><strong>@Html.DisplayNameFor(model => model.lastName)</strong></li>
+
+                    <li><strong>@Html.DisplayNameFor(model => model.businessName)</strong></li>
+
+                    <li><strong>@Html.DisplayNameFor(model => model.email)</strong></li>
+
+                    <li><strong>@Html.DisplayNameFor(model => model.city)</strong></li>
+
+                    <li><strong>@Html.DisplayNameFor(model => model.state)</strong></li>
+
+                    <li><strong>@Html.DisplayNameFor(model => model.dateJoined)</strong></li>
+
+                    <li><strong>@Html.DisplayNameFor(model => model.skillsOffered)</strong></li>
+
+                    <li class="last"><strong>@Html.DisplayNameFor(model => model.certs)</strong></li>
+                </ul>
+            </div>
+
+
+
+            <br class="clear" />
+        </div>
+    </div>
+
+    <div class="wrapper col7">
+        <div id="footer">
+            <p><br /></p>
+            <p><br /></p>
+
+            <div class="footbox">
+                <h2>Place Holder for Feedback</h2>
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+            </div>
+
+            <div class="footbox">
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+            </div>
+
+            <div class="footbox">
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+            </div>
+
+            <div class="footbox">
+                <h2>Place Holder for Latest Messages</h2>
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+                <p><br /></p>
+            </div>
+
+        </div>
+    </div>
+
+
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.userName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.firstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lastName)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.businessName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.city)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.state)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.dateJoined)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.skillsOffered)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.certs)
+                </th>
+                <th></th>
+            </tr>
+        </table>
+
+        <table class="table">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.userName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.firstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.businessName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.city)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.state)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dateJoined)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.skillsOffered)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.certs)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>*@
+</body>
+</html>
+ 
+        END-------------->

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Sprint1Test.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Index</h1>
+<ul class="customUList">
+    @foreach (var item in Model)
+    {
+        <li class="catTitle"><h2>@Html.DisplayFor(modelItem => item.CategoryName)</h2></li>
+
+    <li>
+        <ul>
+            @foreach (var item2 in item.SubCategories)
+            {
+                if (item.CategoryID == item2.CategoryID)
+                {
+                    <li><h3>@Html.DisplayFor(modelItem => item2.SubCategoryName)</h3></li>
+
+                    foreach (var item3 in item2.Skills)
+                    {
+                        if (item2.SubCategoryID == item3.SubCategoryID)
+                        {
+                            String temp;
+                            
+                            if(!item3.Link.Contains("Http://"))
+                            {
+                                temp = "Http://" + item3.Link;
+                            }
+                            else
+                            {
+                                temp = item3.Link;
+                            }
+                            
+                            <a href= @temp class="myButton">@Html.DisplayFor(modelItem => item3.SkillName)</a>
+                        }
+                    }
+                }
+            }
+        </ul>
+    </li>
+
+    }
+
+</ul>

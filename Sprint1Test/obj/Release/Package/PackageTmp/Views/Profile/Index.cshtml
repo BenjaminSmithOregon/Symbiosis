@@ -1,0 +1,97 @@
+﻿
+@model PagedList.IPagedList<Sprint1Test.Models.Profile>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@*@model IEnumerable<Sprint1Test.Models.Profile>*@
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>Registered Users</h2>
+
+    @using (Html.BeginForm("Index", "Profile", FormMethod.Get))
+    {
+        <p>
+            Find by username, first, or last name: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Username", "Index", new { sortOrder = ViewBag.NameSortParm }, new { style = "color:white" })
+            </th>
+
+            <th>
+                @Html.ActionLink("First", "Index", new { sortOrder = ViewBag.FirstNameSortParm }, new { style = "color:white" })
+            </th>
+
+            <th>
+                @Html.ActionLink("Last", "Index", new { sortOrder = ViewBag.LastNameSortParm }, new { style = "color:white" })
+            </th>
+
+            <th>
+                Email
+            </th>
+
+            <th>
+                @Html.ActionLink("City", "Index", new { sortOrder = ViewBag.CitySortParm }, new { style = "color:white" })
+            </th>
+
+            <th>
+                @Html.ActionLink("State", "Index", new { sortOrder = ViewBag.StateSortParm }, new { style = "color:white" })
+            </th>
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.firstName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.city)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.state)
+                </td>
+
+                <td>
+                    @*      @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+                    @*       @Html.ActionLink("Details", "Details", new { id=item.Id }) |*@
+                    @*        @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+                </td>
+            </tr>
+        }
+
+    </table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+    

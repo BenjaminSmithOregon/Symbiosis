@@ -1,0 +1,61 @@
+﻿
+
+@{
+   
+    string customerName = Request["customerName"];
+    var customerEmail = Request["customerEmail"];
+    var customerRequest = Request["customerRequest"];
+    var errorMessage = "";
+    var debuggingFlag = false;
+    try
+    {
+        // Initialize WebMail helper
+        WebMail.SmtpServer = "smtp.sendgrid.net";
+        WebMail.SmtpPort = 587;
+        WebMail.UserName = "azure_d1205a8a180ffa15f061bcfb51dcd8c5@azure.com";
+        WebMail.Password = "3PbEcP1nnAXO4pp";
+        WebMail.From = "azure_d1205a8a180ffa15f061bcfb51dcd8c5@azure.com";
+
+
+        // Send email
+        WebMail.Send(to: "acarlson11@wou.edu",
+            subject: "Website request from - " + customerName + " (" + customerEmail + ")",
+            body: customerRequest
+        );
+    }
+    catch (Exception ex)
+    {
+        errorMessage = ex.Message;
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thanks for your feedback!</title>
+</head>
+<body>
+    <p>Your website feedback has been submitted!, <b>@customerName</b>.</p>
+    @if (errorMessage == "")
+    {
+        <p>
+            An email message has been sent to our administrators
+            regarding your website feedback:
+        </p>
+        <p><b>@customerRequest</b></p>
+    }
+    else
+    {
+        <p><b>The email was <em>not</em> sent.</b></p>
+        <p>
+            Please check that the code in the ProcessRequest page has
+            correct settings for the SMTP server name, a user name,
+            a password, and a "from" address.
+        </p>
+        if (debuggingFlag)
+        {
+            <p>The following error was reported:</p>
+            <p><em>@errorMessage</em></p>
+        }
+    }
+</body>
+</html>

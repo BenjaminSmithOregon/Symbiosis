@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Sprint1Test.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registered Users</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by username or email: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Username", "Index", new { sortOrder = ViewBag.NameSortParm }, new { style = "color:white" })
+        </th>
+
+        <th>
+            @Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.DateSortParm }, new { style = "color:white" })
+        </th>
+
+        <th>
+            @Html.ActionLink("Confirmed", "Index", new { sortOrder = ViewBag.DateSortParm }, new { style = "color:white" })
+        </th>
+
+        <th>
+            @Html.ActionLink("Phone # Confirmed", "Index", new { sortOrder = ViewBag.DateSortParm }, new { style = "color:white" })
+        </th>
+
+
+        <th>
+            @Html.ActionLink("Account Suspended Tell:", "Index", new { sortOrder = ViewBag.DateSortParm }, new { style = "color:white" })
+        </th>
+
+
+    <th></th>
+</tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailConfirmed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumberConfirmed)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.LockoutEndDateUtc)
+        </td>
+
+        <td>
+      @*      @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+     @*       @Html.ActionLink("Details", "Details", new { id=item.Id }) |*@
+    @*        @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+        </td>
+    </tr>
+}
+
+</table>

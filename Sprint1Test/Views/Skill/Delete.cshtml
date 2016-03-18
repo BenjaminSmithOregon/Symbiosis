@@ -1,0 +1,21 @@
+﻿@model Sprint1Test.Models.Skill
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Are you sure?</h2>
+
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", null, new { style = "color:white" })
+        </div>
+    }
+</div>

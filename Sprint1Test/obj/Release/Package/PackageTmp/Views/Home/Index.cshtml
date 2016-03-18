@@ -1,0 +1,147 @@
+﻿@model IEnumerable<Sprint1Test.Models.Post>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Template Name: Modular Business
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<body id="top">
+   
+
+    <!-- ####################################################################################################### -->
+    
+        <div class="wrapper col4">
+            <div id="featured_slide">
+                <div id="featured_content">
+                    <ul>
+                        <li><a href="http://symbiosisforum.azurewebsites.net/forum/viewforum/automotive/3" target="_blank"><img src="images/demo/Auto Repair.jpg" alt="" /></a></li>
+                        <li><a href="http://symbiosisforum.azurewebsites.net/forum/viewcategory/computing/3" target="_blank"><img src="images/demo/computer.jpg" alt="" /></a></li>
+                        <li><a href="http://symbiosisforum.azurewebsites.net/forum/viewforum/electrical/5" target="_blank"><img src="images/demo/electrical.jpg" alt="" /></a></li>
+                        <li><a href="http://symbiosisforum.azurewebsites.net/forum/viewforum/plumbing/6" target="_blank"><img src="images/demo/plumbing.jpg" alt="" /></a></li>
+                        <li><a href="http://symbiosisforum.azurewebsites.net/forum/viewforum/telephone/7" target="_blank"><img src="images/demo/telephone.jpg" alt="" /></a></li>
+                        <li><a href="http://symbiosisforum.azurewebsites.net/forum/viewforum/carpentry/9" target="_blank"><img src="images/demo/carpenter.jpg" alt="" /></a></li>
+                        <li><a href="http://symbiosisforum.azurewebsites.net/forum/viewforum/sewing/8" target="_blank"><img src="images/demo/taylor.jpg" alt="" /></a></li>
+                        <li><a href="http://symbiosisforum.azurewebsites.net/forum/viewcategory/legal/7" target="_blank"><img src="images/demo/lawyer.jpg" alt="" /></a></li>
+                        <li><a href="http://symbiosisforum.azurewebsites.net/forum/viewforum/child-care/11" target="_blank"><img src="images/demo/childcare.jpg" alt="" /></a></li>
+                        <li><a href="http://symbiosisforum.azurewebsites.net/forum/viewcategory/medical/8" target="_blank"><img src="images/demo/doctor1.jpg" alt="" /></a></li>
+                        <li><a href="http://symbiosisforum.azurewebsites.net/forum/viewforum/hair-styling-and-cutting/13" target="_blank"><img src="images/demo/barber.jpg" alt="" /></a></li>
+                    </ul>
+                </div>
+                <a href="javascript:void(0);" id="featured-item-prev"><img src="layout/images/prev.png" alt="" /></a> <a href="javascript:void(0);" id="featured-item-next"><img src="layout/images/next.png" alt="" /></a>
+            </div>
+        </div>
+        <!-- ####################################################################################################### -->
+        <div class="wrapper col5">
+            <div id="container">
+                <div id="content">
+                    <h2>About Symbiosis  ---> @Html.ActionLink("* How to get started *", "Start", "Home")</h2>
+                    <img class="imgl" src="images/demo/hands.jpg" alt="" width="150" height="130" />
+                    <p><strong>Emphasis on Free Market</strong></p>
+                    <p>
+                        For professionals who need a place to trade their skills, Symbiosis is a <a href="http://symbiosisforum.azurewebsites.net/forum">skills for hire</a> site that provides a
+                        network which brings freelance work to professionals in a wide variety of fields.
+                    </p>
+                    <p>
+                        Members are be able to submit the work that they are willing to trade and the type of work that they are requesting.  Members also have a @Html.ActionLink("feedback system", "Index", "Job")
+                       where other members that have received services from that member can leave feedback for them.
+                    </p>
+                    <p>
+                        Unlike other professional service listing sites, where users exchange money in return for the use of skills, our application requires our members to
+                        trade their craft and resources for someone else’s expertise instead of paying out of pocket for services.
+                    </p>
+                    <p><br></p>
+                    <h2>In the News</h2>
+                    @foreach (var item in Model)
+                    {  <dl class="dl-horizontal">
+                        <dt></dt>
+                           <dd><u>@Html.DisplayFor(modelItem => item.PostTitle)</u></dd>
+                        <dt></dt>
+                        <dd>@Html.DisplayFor(modelItem => item.PostText)</dd>
+                    </dl> }
+                </div>
+
+                <div id="column">
+                    <div class="holder">
+                        @*<h2>@Html.ActionLink("How to get started", "Start", "Home")</h2>*@
+                        <h2>New Skills</h2>
+                        <ul id="latestnews">
+                            <li>
+                                <img class="imgl" src="images/demo/software design.jpg" alt="" width="150" height="110" />
+                                <p><strong>Our newest skill ever!</strong></p>
+                                <p>This is our newest skill area to be added; software design.</p>
+                                <p class="readmore"><a @Html.ActionLink("Click here to browse jobs", "Index", "Job")> &raquo;</a></p>
+                            </li>
+                            <li class="last">
+                                <img class="imgl" src="images/demo/hammock1.jpg" alt="" width="100" height="100" />
+                                <p><strong>New skill area.</strong></p>
+                                <p>We have now added an R&R area, and outdoor hammocks is our first skill.</p>
+                                <p class="readmore"><a @Html.ActionLink("Search for a hammock", "Index", "skill")>&raquo;</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <br class="clear" />
+            </div>
+        </div>
+        <!-- ####################################################################################################### -->
+        <div class="wrapper col6">
+            <div id="footer">
+                <div id="newsletter">
+                    <h2>Stay In The Know !</h2>
+                    <p>Please enter your email to get alerts when new skills are added in your area</p>
+                    <form action="#" method="post">
+                        <fieldset>
+                            <legend>News Letter</legend>
+                            <input type="text" value="Enter Email Here&hellip;" onfocus="this.value=(this.value=='Enter Email Here&hellip;')? '' : this.value ;" />
+                            <input type="submit" name="news_go" id="news_go" value="GO" />
+                        </fieldset>
+                    </form>
+                    <p>To unsubscribe please <a href="#">click here &raquo;</a></p>
+                </div>
+                <div class="footbox">
+                    <h2>Information</h2>
+                    <ul>
+                        <li><a href="#">Imprint</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li class="last"><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footbox">
+                    <h2>Business</h2>
+                    <ul>
+                        <li><a href="#">Advertising</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li class="last"><a href="#">Partner</a></li>
+                    </ul>
+                </div>
+                <div class="footbox">
+                    <h2>Feedback and Suggestions</h2>
+                    <ul>
+                        <li>@Html.ActionLink("Website Feedback", "WebsiteSuggestionSubmit", "EmailForm", new { style = "color:white" })</li>
+                        <li>@Html.ActionLink("Suggest a new skill", "SuggestionSubmit", "EmailForm", new { style = "color:white" })</li>
+                        <li>@Html.ActionLink("Send a message (Members Only)", "MasterEmail", "EmailForm", new { style = "color:white" })</li>
+                    </ul>
+                </div>
+                <br class="clear" />
+            </div>
+        </div>
+        <!-- ####################################################################################################### -->
+        <div class="wrapper col7">
+            <div id="copyright">
+                <p class="fl_left">Copyright Symbiosis &copy; 2015 - All Rights Reserved - <a href="#">SymbiosisApp.net</a></p>
+                <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">Agile Alpaca</a></p>
+                <br class="clear" />
+            </div>
+        </div>
+    </body>
+</html>
